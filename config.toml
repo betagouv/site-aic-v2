@@ -1,4 +1,4 @@
-baseURL = 'https://citoyens.transformation.gouv.fr/'
+baseURL = 'https://communs.beta.gouv.fr/'
 languageCode = 'fr-fr'
 title = 'AIC'
 
