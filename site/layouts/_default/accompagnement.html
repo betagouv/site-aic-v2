@@ -1,0 +1,89 @@
+{{ define "main" }}
+
+<!--<div class="c-hero">
+  <div class="c-hero__bg">
+    <img src="/{{ .Params.image }}" alt="" />
+  </div>
+</div>-->
+<div class="fr-container">
+  <div class="fr-grid-row fr-grid-row--center">
+    <div class="fr-col-12 fr-col-lg-10">
+      <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+        <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-192">Voir le fil d’Ariane</button>
+        <div class="fr-collapse" id="breadcrumb-192">
+          <ol class="fr-breadcrumb__list">
+            <li>
+              <a class="fr-breadcrumb__link" href="{{ .Site.BaseURL }}">Accueil</a>
+            </li>
+            <li>
+              <a class="fr-breadcrumb__link" aria-current="page">Accompagnement</a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+      <h1 class="fr-mb-8v">{{ .Title }}</h1>
+      <div class="u-text-lg">
+        {{ partial "markdownify-block" .Params.desc }}
+      </div>
+      {{ with .Params.numbers }}
+      <div class="fr-grid-row fr-grid-row--gutters fr-mb-8v">
+        {{ range . }}
+        <div class="fr-col-12 fr-col-md-6 fr-col-lg-4">
+          <div class="c-card-number">
+            <div class="c-card-number__num">{{ .num }}</div>
+            <h3 class="fr-h2">{{ .title }}</h3>
+            {{ if ne .btnUrl "" }}
+            <a href="{{ .btnUrl }}" class="fr-btn fr-btn--sm fr-btn--secondary">{{ .btnTitle }}</a>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ range .Params.steps.list }}
+  
+  <div class="fr-grid-row fr-grid-row--gutters fr-mb-8v">
+    <div class="fr-col-12 fr-col-sm-4 fr-col-offset-lg-1 fr-col-lg-3">
+      <img src="{{ .icon }}" alt="" />
+    </div>
+    <div class="fr-col-12 fr-col-sm-8 fr-col-lg-7">
+      <h4 class="fr-h4 fr-mb-3v is-step-title">
+        <!--<span class="fr-tag">{{ .step }} | {{ .duration }}</span> <br />-->{{ .title }}
+      </h4>
+      <p class="fr-text--lg fr-mb-0">
+        <strong class="u-color-primary">{{ .dates }}.</strong> {{ .desc }}
+      </p>
+    </div>
+  </div>
+  {{ end }}
+      <div class="u-text-lg">
+        {{ partial "markdownify-block" .Params.how.desc }}
+      </div>
+      <div class="fr-grid-row fr-grid-row--gutters fr-grid-row--center fr-mb-8v">
+        {{ range $index, $tile := .Params.how.tiles }}
+        <div class="fr-col-6 fr-col-sm-2 fr-col-lg-3">
+          <div class="fr-tile">
+            <div class="fr-tile__body">
+              <p class="fr-tile__title">
+                {{ $tile.title }}
+              </p>
+            </div>
+            <img src="/{{ $tile.image }}" class="fr-responsive-img" style="max-width:50%; margin: auto" alt="" />
+            <!--  L’alternative de l’image (attribut alt) doit rester vide car l’image est illustrative et ne doit pas être restituée aux technologies d’assistance  -->
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      <h3>{{ .Params.steps.title }}</h3>
+    </div>
+  </div>
+  <div class="fr-grid-row fr-grid-row--center">
+    <div class="fr-col-12 fr-col-lg-10">
+      <div class="u-text-lg">
+        {{ partial "markdownify-block" .Params.then.desc }}
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ end }}

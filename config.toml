@@ -1,0 +1,6 @@
+baseURL = 'https://citoyens.transformation.gouv.fr/'
+languageCode = 'fr-fr'
+title = 'AIC'
+
+relativeURLs=true
+canonifyURLs=true

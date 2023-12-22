@@ -1,0 +1,53 @@
+baseurl = "https://citoyens.transformation.gouv.fr"
+languageCode = "fr-fr"
+languageLang = "fr"
+title = "Accélérateur d'initiatives citoyennes"
+paginate = 8
+
+# RSS, categories and tags disabled for an easy start
+# See configuration options for more details:
+# https://gohugo.io/getting-started/configuration/#toml-configuration
+# disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
+
+removePathAccents = true
+
+[taxonomies]
+  theme = "themes"
+  promo = "promos"
+  expertise = "expertises"
+  category = "categories"
+  impact = "impacts"
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.nav]]
+    name = "Manifeste"
+    url = "/manifeste"
+    identifier = "manifeste"
+    weight = 1
+  [[menu.nav]]
+    name = "Accompagnement"
+    url = "/accompagnement"
+    identifier = "accompagnement"
+    weight = 2
+  [[menu.nav]]
+    name = "Équipe"
+    url = "/equipe"
+    identifier = "equipe"
+    weight = 3
+  [[menu.nav]]
+    name = "Foire aux questions"
+    url = "/faq"
+    identifier = "faq"
+    weight = 4
+  [[menu.nav]]
+    name = "Contact"
+    url = "/contact"
+    identifier = "contact"
+    weight = 5
+  

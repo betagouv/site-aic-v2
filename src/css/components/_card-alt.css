@@ -1,0 +1,13 @@
+.c-card-alt {
+  color: var(--bf500);
+  padding: 1.5rem;
+  background-color: #aeeaea;
+
+  &--ghost-white {
+    background-color: #F1F3F9;
+  }
+
+  @media (min-width: 48em) {
+    height: 100%;
+  }
+}

@@ -1,0 +1,92 @@
+{{ define "main" }}
+
+<div class="fr-container">
+  <div class="fr-grid-row fr-grid-row--center">
+    <div class="fr-col-12 fr-col-lg-10">
+      <nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+        <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-192">
+          Voir le fil d’Ariane
+        </button>
+        <div class="fr-collapse" id="breadcrumb-192">
+          <ol class="fr-breadcrumb__list">
+            <li>
+              <a class="fr-breadcrumb__link" href="{{ .Site.BaseURL }}">Accueil</a>
+            </li>
+            <li>
+              <a class="fr-breadcrumb__link" aria-current="page">Contact</a>
+            </li>
+          </ol>
+        </div>
+      </nav>
+      <h1 class="fr-mb-10v">Contactez-nous</h1>
+      <div class="fr-grid-row fr-grid-row--gutters">
+        <div class="fr-col-12 fr-col-lg-6">
+          <form action="https://formspree.io/f/xvonkdyn" method="POST">
+            <p>* champs obligatoires</p>
+              <!-- Fieldset personal data -->
+              <fieldset class="fr-fieldset fr-form-group">
+                <legend class="a11y_visually-hidden">Informations personnelles</legend>
+
+                <fieldset class="fr-fieldset fr-input-group">
+                  <legend class="a11y_visually-hidden">Nom</legend>
+                  <label class="fr-label" for="nom">Votre nom *</label>
+                  <input class="fr-input" type="text" autocomplete="name" id="nom" name="nom" required />
+                </fieldset>
+
+                <fieldset class="fr-fieldset fr-input-group">
+                  <legend class="a11y_visually-hidden">Addresse e-mail</legend>
+                  <label class="fr-label" for="email">Votre adresse e-mail *</label>
+                  <label class="fr-label fr-hint-text" for="email">Format attendu : nom@domaine.fr</label>
+                  <input class="fr-input" type="email" autocomplete="email" id="email" name="email" required />
+                </fieldset>
+              </fieldset>
+              <!-- END Fieldset personal data -->
+              <!-- Fieldset Message -->
+              <fieldset class="fr-fieldset fr-input-group">
+
+                <legend class="a11y_visually-hidden">Message</legend>
+
+                <fieldset class="fr-fieldset fr-input-group">
+                  <legend class="a11y_visually-hidden">Sujet</legend>
+                  <label class="fr-label" for="sujet">Votre sujet *</label>
+                  <input class="fr-input" type="text" id="sujet" name="sujet" required />
+                </fieldset>
+
+                <fieldset class="fr-fieldset fr-input-group">
+                  <legend class="a11y_visually-hidden">Corps du message</legend>
+                  <label class="fr-label" for="message">Votre message *</label>
+                  <textarea class="fr-input" rows="5" id="message" name="message" required></textarea>
+                </fieldset>
+              </fieldset>
+              <!-- END Fieldset Message -->
+                  <button class="fr-btn" title="Envoyer votre message" type="submit">
+                    Envoyer votre message
+                  </button>
+              </fieldset>
+              <div class="c-wysiwyg fr-mt-12v fr-mb-12v">
+                <em>{{ .Params.confidentiality }}</em>
+              </div>
+          </form>
+        </div>
+        <div class="fr-col-12 fr-col-lg-5 fr-col-offset-lg-1">
+          <p><strong>Surtout n'hésitez pas si</strong></p>
+          <p><span class="fr-link fr-fi-arrow-right-line" aria-hidden="true"></span>{{ .Params.commun | markdownify }}</p>
+          <p><span class="fr-link fr-fi-arrow-right-line" aria-hidden="true"></span>{{ .Params.admin | markdownify }}</p>
+          <div class="fr-callout fr-callout--contact fr-mb-12v">
+            <div class="fr-callout__text">
+              <h2 class="offset">Coordonnées</h2>
+              <h3 class="fr-h4">Adresse postale</h3>
+              <p class="fr-mb-4v">
+                DINUM Programme AIC <br />20 avenue de Ségur <br />75007
+                Paris, France
+              </p>
+            </div>
+          </div>
+          <div class="c-wysiwyg fr-mt-12v fr-mb-12v">{{ .Content }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ end }}
