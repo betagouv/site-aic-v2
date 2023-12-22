@@ -1,8 +1,9 @@
 backend:
   name: github
-  branch: master
+  branch: main
   repo:  betagouv/site-aic-v2
-  site_domain: reliable-kheer-8fbe86.netlify.app
+  site_domain: communs.beta.gouv.fr
+  base_url: https://betagouv-cms-auth.osc-secnum-fr1.scalingo.io
 
 media_folder: "site/static/img" # Folder where user uploaded files should go
 public_folder: "img"
